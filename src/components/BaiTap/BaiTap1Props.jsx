@@ -1,5 +1,6 @@
 import React from "react";
 import ItemPokemon from "./ItemPokemon";
+import { DatePicker } from "antd";
 
 const BaiTap1Props = () => {
   const pokemons = [
@@ -87,6 +88,7 @@ const BaiTap1Props = () => {
 
   return (
     <div>
+      <DatePicker />
       <h2>Bài tập hiển thị các pokemons</h2>
       <div className="grid grid-cols-5">
         {/* mảng để map và tạo layout  */}

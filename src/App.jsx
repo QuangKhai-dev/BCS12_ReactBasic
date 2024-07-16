@@ -1,41 +1,38 @@
-import { useState } from "react";
-import HeaderDemo from "./components/HeaderDemo";
-import HomeDemo from "./components/HomeDemo";
-import NavDemo from "./components/NavDemo";
-import ContentDemo from "./components/ContentDemo";
-import RenderShoes from "./components/RenderShoes";
-import DemoEvent from "./components/DemoEvent";
-import DemoCss from "./components/DemoCss/DemoCss";
-import DemoState from "./components/DemoState/DemoState";
-import BaiTap1State from "./components/DemoState/BaiTap1State";
+import { Route, Routes } from "react-router-dom";
 import BaiTap1Props from "./components/BaiTap/BaiTap1Props";
 import BaiTapHienThiDienThoai from "./components/BaiTap/BaiTapHienThiDienThoai/BaiTapHienThiDienThoai";
+import HomeTemplate from "./template/HomeTemplate/HomeTemplate";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 function App() {
-  const [count, setCount] = useState(0);
-  function updateStateCount() {
-    setCount(count + 1);
+  {
+    /* // path (tuyến đường) : endpoint  /home */
   }
+  // cách setup và sử dụng
+  // index, elment, path trong react router dom
+  // setup template sử dụng chung cho các trang
+  // PAGE NOT FOUND
+  // lấy dữ liệu param (:id), query param (&name="")
+  // Custom xây dựng cơ chế routing theo hook useRoutes từ react router dom
+
   return (
     <>
-      {/* <DemoCss />
-      <HomeDemo />
-      <HeaderDemo />
-      <HeaderDemo />
-      <div className="grid grid-cols-3 h-40">
-        <NavDemo />
-        <ContentDemo />
-      </div>
-      <RenderShoes />
-      <DemoEvent />
+      <Routes>
+        {/* path /bai-tap-hien-thi-dien-thoai  */}
 
-      <div className="container">
-        <h5 className="demo_sass">Hello Bé Ba</h5>
-      </div>
-      <DemoState /> */}
-      {/* <BaiTap1State updateStateCount={updateStateCount} abc={count} /> */}
-      {/* <BaiTap1Props /> */}
-      <BaiTapHienThiDienThoai />
+        {/* pathTemplate/pathChildElement  */}
+        {/* /home/bai-tap-pokemon    */}
+        <Route path="/" element={<HomeTemplate />}>
+          {/* thuộc tính index giúp xác định một component con sẽ hiển thị cùng lúc khi người dùng truy cập tới đường dẫn của component cha  */}
+          <Route index element={<BaiTap1Props />} />
+          <Route
+            path="bai-tap-hien-thi-dien-thoai"
+            element={<BaiTapHienThiDienThoai />}
+          />
+        </Route>
+        {/* path với giá trị * sẽ là các đường dẫn không bao gồm các đường dẫn đã setup  */}
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
     </>
   );
 }
