@@ -94,7 +94,7 @@ const BaiTap1Props = () => {
         {/* mảng để map và tạo layout  */}
         {pokemons.map((item, index) => {
           const { image, name, attack, defense } = item;
-          return <ItemPokemon />;
+          return <ItemPokemon pokemon={item} />;
         })}
       </div>
     </div>

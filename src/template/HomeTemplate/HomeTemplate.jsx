@@ -1,12 +1,20 @@
 import React from "react";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
+import { path } from "../../common/path";
 const { Header, Content, Footer } = Layout;
-const items = new Array(3).fill(null).map((_, index) => ({
-  key: String(index + 1),
-  label: `nav ${index + 1}`,
-}));
+
 const HomeTemplate = () => {
+  const arrNavlink = [
+    {
+      to: path.homePage,
+      content: "Home",
+    },
+    {
+      to: path.baiTapDienThoai,
+      content: "Bài tập điện thoại",
+    },
+  ];
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -23,16 +31,21 @@ const HomeTemplate = () => {
         }}
       >
         <div className="demo-logo" />
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={["2"]}
-          items={items}
-          style={{
-            flex: 1,
-            minWidth: 0,
-          }}
-        />
+
+        {arrNavlink.map((item, index) => {
+          return (
+            <NavLink
+              className={({ isActive }) => {
+                // trong hàm trả về class của thẻ NavLink có cung cấp thuộc tính isActive giúp kiểm tra path của url và giá trị trong thuộc tính to của thẻ xem giống nhau hay không, nếu giống trả về kết quả true và ngược lại
+                console.log(isActive);
+                return `mx-4 ${isActive ? "text-red-500" : "text-white"}`;
+              }}
+              to={item.to}
+            >
+              {item.content}
+            </NavLink>
+          );
+        })}
       </Header>
       <Content
         style={{
