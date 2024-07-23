@@ -24,6 +24,10 @@ const HomeTemplate = () => {
       to: path.baiTapLacXiNgau,
       content: "Bài tập lắc xí ngầu",
     },
+    {
+      to: "/demo-useEffect",
+      content: "Demo useEffect",
+    },
   ];
   const {
     token: { colorBgContainer, borderRadiusLG },

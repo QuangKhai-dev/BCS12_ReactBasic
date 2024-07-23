@@ -8,6 +8,8 @@ import ShoeDetail from "../components/ShoeDetail";
 import { path } from "../common/path";
 import DemoRedux from "../components/DemoRedux/DemoRedux";
 import BaiTapLacXiNgau from "../components/BaiTap/BaiTapLacXiNgau/BaiTapLacXiNgau";
+import DemoUseEffect from "../components/DemoUseEffect/DemoUseEffect";
+import DemoUseEffectDetail from "../components/DemoUseEffect/DemoUseEffectDetail";
 
 const useRouteCustom = () => {
   const elements = useRoutes([
@@ -34,6 +36,14 @@ const useRouteCustom = () => {
         {
           path: path.baiTapLacXiNgau,
           element: <BaiTapLacXiNgau />,
+        },
+        {
+          path: "/demo-useEffect",
+          element: <DemoUseEffect />,
+        },
+        {
+          path: "/demo-use-effect-detail/:id",
+          element: <DemoUseEffectDetail />,
         },
       ],
     },
