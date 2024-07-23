@@ -6,6 +6,8 @@ import BaiTap1Props from "../components/BaiTap/BaiTap1Props";
 import BaiTapHienThiDienThoai from "../components/BaiTap/BaiTapHienThiDienThoai/BaiTapHienThiDienThoai";
 import ShoeDetail from "../components/ShoeDetail";
 import { path } from "../common/path";
+import DemoRedux from "../components/DemoRedux/DemoRedux";
+import BaiTapLacXiNgau from "../components/BaiTap/BaiTapLacXiNgau/BaiTapLacXiNgau";
 
 const useRouteCustom = () => {
   const elements = useRoutes([
@@ -24,6 +26,14 @@ const useRouteCustom = () => {
         {
           path: `${path.shoeDetail}/:id`,
           element: <ShoeDetail />,
+        },
+        {
+          path: path.demoRedux,
+          element: <DemoRedux />,
+        },
+        {
+          path: path.baiTapLacXiNgau,
+          element: <BaiTapLacXiNgau />,
         },
       ],
     },
