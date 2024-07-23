@@ -1,10 +1,19 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { luaChonNguoiDung } from "../../../redux/slices/xiNgauSlice";
 const XiNgau = () => {
+  const dispatch = useDispatch();
   const { xiNgau } = useSelector((state) => state.xiNgauSlice);
   return (
     <div className="xiNgau flex justify-between">
-      <button className="btn-xiNgau">Tài</button>
+      <button
+        onClick={() => {
+          dispatch(luaChonNguoiDung(true));
+        }}
+        className="btn-xiNgau"
+      >
+        Tài
+      </button>
       <div className="flex items-center p-3 bg-white h-max">
         <img
           src={`./public/lacXiNgau/${xiNgau.xiNgau1}.png`}
@@ -22,7 +31,14 @@ const XiNgau = () => {
           alt=""
         />
       </div>
-      <button className="btn-xiNgau">Xỉu</button>
+      <button
+        onClick={() => {
+          dispatch(luaChonNguoiDung(false));
+        }}
+        className="btn-xiNgau"
+      >
+        Xỉu
+      </button>
     </div>
   );
 };

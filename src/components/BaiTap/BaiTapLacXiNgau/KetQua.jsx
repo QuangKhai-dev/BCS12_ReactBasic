@@ -8,7 +8,8 @@ const KetQua = () => {
   return (
     <div className="ketQua">
       <p>
-        Bạn chọn <span className="text-red-500 ml-3">{banChon}</span>
+        Bạn chọn{" "}
+        <span className="text-red-500 ml-3">{banChon ? "Tài" : "Xỉu"}</span>
       </p>
       <p>
         Tổng số bàn thắng
