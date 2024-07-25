@@ -5,10 +5,40 @@ import HomeTemplate from "./template/HomeTemplate/HomeTemplate";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 import ShoeDetail from "./components/ShoeDetail";
 import useRouteCustom from "./routes/useRouteCustom";
+import { message } from "antd";
+import React from "react";
+
+export const NotificationContext = React.createContext();
 
 function App() {
+  const [messageApi, contextHolder] = message.useMessage();
   const routes = useRouteCustom();
-  return routes;
+  const handleNotification = (status, content) => {
+    messageApi.open({
+      type: status,
+      content,
+    });
+  };
+  return (
+    <>
+      <NotificationContext.Provider
+        value={{
+          abc: "Linh đa",
+          handleNotification,
+        }}
+      >
+        {contextHolder}
+        {routes}
+      </NotificationContext.Provider>
+      {/* <NotificationContext.Provider value={{
+        abc : 'Khải'
+      }}>
+        <Header />
+      </NotificationContext.Provider>
+      <Body />
+      <Footer /> */}
+    </>
+  );
   {
     /* // path (tuyến đường) : endpoint  /home */
   }

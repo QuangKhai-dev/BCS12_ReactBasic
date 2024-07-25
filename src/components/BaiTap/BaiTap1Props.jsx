@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import ItemPokemon from "./ItemPokemon";
 import { DatePicker } from "antd";
 import { useSelector } from "react-redux";
+import useInput from "../../hooks/useInput";
 
 const BaiTap1Props = () => {
+  const taiKhoan = useInput("abc");
+  console.log(taiKhoan);
   const { pokemons } = useSelector((state) => state.pokemonSlice);
-  console.log(pokemons);
   return (
     <div>
       <DatePicker />
@@ -16,6 +18,7 @@ const BaiTap1Props = () => {
           const { image, name, attack, defense } = item;
         })}
       </div>
+      <input type="text" placeholder="Vui lòng nhập tài khoản" {...taiKhoan} />
     </div>
   );
 };

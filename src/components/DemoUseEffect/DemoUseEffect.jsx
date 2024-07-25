@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { NotificationContext } from "../../App";
 const DemoUseEffect = () => {
+  const dataContext = useContext(NotificationContext);
+  console.log(dataContext);
   const [listShoe, setListShoe] = useState();
   useEffect(() => {
     console.log("Tôi là useEffect chạy sau khi giao diện xuất hiện");
@@ -18,6 +21,7 @@ const DemoUseEffect = () => {
       .catch((err) => {
         console.log(err);
       });
+    dataContext.handleNotification("error", "Hello");
   }, []);
   console.log("Tôi là component demoUseEffect");
   console.log(listShoe);
