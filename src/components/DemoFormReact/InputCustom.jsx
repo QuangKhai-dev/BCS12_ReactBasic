@@ -8,6 +8,9 @@ const InputCustom = ({
   onChange,
   value,
   classWrapper = "",
+  onBlur,
+  error,
+  touched
 }) => {
   return (
     <div className={classWrapper}>
@@ -27,7 +30,9 @@ const InputCustom = ({
         name={name}
         onChange={onChange}
         value={value}
+        onBlur={onBlur}
       />
+      {error && touched ? <p className="text-red-500">{error}</p>: null}
     </div>
   );
 };
